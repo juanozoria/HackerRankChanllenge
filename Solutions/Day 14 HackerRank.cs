@@ -1,10 +1,15 @@
-public Difference(int[] arreglo)
+public class Difference
     {
-    this.elements = arreglo;
-}
-public void computeDifference()
-    {
-     for (int i = 0; i < elements.Length; i++)
+        private int[] elements;
+        public int maximumDifference;
+        //Constructor de la clase que toma un arreglo por parametro
+        public Difference(int[] arreglo)
+        {
+            this.elements = arreglo;
+        }
+        public void computeDifference()
+        {
+            for (int i = 0; i < elements.Length; i++)
             {
                 for (int j = 0; j < elements.Length; j++)
                 {
@@ -15,4 +20,20 @@ public void computeDifference()
                     }
                 }
             }
-}
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+             Convert.ToInt32(Console.ReadLine());
+
+            int[] a = Console.ReadLine().Split(' ').Select(x => Convert.ToInt32(x)).ToArray();
+
+            Difference d = new Difference(a);
+
+            d.computeDifference();
+
+            Console.Write(d.maximumDifference);
+        }
+    }
